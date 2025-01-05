@@ -1,0 +1,13 @@
+#! /bin/bash
+
+cc checker.c weave.c -lpng16.dll
+mv a.exe /srv/www/cgi-bin/checker.cgi
+
+g++ acivivid.c autocheck.c SHA1Sum.cpp weave.c -lpng16.dll
+mv a.exe /srv/www/cgi-bin/acivivid.cgi
+
+g++ acimild.c autocheck.c SHA1Sum.cpp weave.c -lpng16.dll
+mv a.exe /srv/www/cgi-bin/acimild.cgi
+
+g++ acisteady.c autocheck.c SHA1Sum.cpp weave.c -lpng16.dll
+mv a.exe /srv/www/cgi-bin/acisteady.cgi
