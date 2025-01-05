@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<html>
+<head>
+<link rel="stylesheet" href="edit.css" type="text/css"/>
+<script src="edit.js" type="text/javascript"></script>
+</head>
+<body onload="setup();">
+<h1>No Check, No Life</h1>
+<div id="work">
+<table>
+<tr>
+<td>
+<canvas id="edit" width="400" height="400"></canvas><br/>
+<img class="yarnctrl" id="copydown" src="copy_down.png"/>
+<img class="yarnctrl" id="swap" src="swap.png"/>
+<img class="yarnctrl" id="copyup" src="copy_up.png"/>
+</td>
+<td>
+Twill <select name="twill" id="twill"><option value="1">1:1</option><option value="2">2:2</option><option value="4">4:4</option><option>8:8</option></select><br/>
+<input type="radio" name="direction" id="get"/><label for="get">GET</label><br/>
+<input type="radio" name="direction" id="set"/><label for="set">SET</label><br/>
+<input type="text" name="r" id="r" size="4"/>,<input type="text" name="g" id="g" size="4"/>,<input type="text" name="b" id="b" size="4"/></br>
+<canvas id="color" width="256" height="96"></canvas><br/>
+Create image file.(png)<br/>
+<table>
+<tr>
+<td colspan="4">Flip type</td>
+</tr>
+<tr>
+<td><input type="radio" name="flip" id="flip0" value="0"/><br/><img src="flip0.png"/><img src="flip0i.png"/><br/><img src="flip0i.png"/><img src="flip0i.png"/></td>
+<td><input type="radio" name="flip" id="fliph" value="h"/><br/><img src="flip0.png"/><img src="fliph.png"/><br/><img src="flip0i.png"/><img src="fliphi.png"/></td>
+<td><input type="radio" name="flip" id="flipv" value="v"/><br/><img src="flip0.png"/><img src="flip0i.png"/><br/><img src="flipv.png"/><img src="flipvi.png"/></td>
+<td><input type="radio" name="flip" id="flipw" value="w"/><br/><img src="flip0.png"/><img src="fliph.png"/><br/><img src="flipv.png"/><img src="flipw.png"/></td>
+</tr>
+<tr>
+<td colspan="4">Angle &amp; Overlap</td>
+</tr>
+<tr id="r0A">
+<td class="render"><input type="radio" name="render" id="0A" value="0A"/></td>
+<td>Square</td>
+<td>U 100%</td>
+<td>L 0%</td>
+</tr>
+<tr id="r0B">
+<td class="render"><input type="radio" name="render" id="0B" value="0B"/></td>
+<td>Square</td>
+<td>U 75%</td>
+<td>L 25%</td>
+</tr>
+<tr id="r0C">
+<td class="render"><input type="radio" name="render" id="0C" value="0C"/></td>
+<td>Square</td>
+<td>U 50%</td>
+<td>L 50%</td>
+</tr>
+<tr id="r1A">
+<td class="render"><input type="radio" name="render" id="1A" value="1A"/></td>
+<td>45°x2<sup>2</sup></td>
+<td>U 100%</td>
+<td>L 0%</td>
+</tr>
+<tr id="r1B">
+<td class="render"><input type="radio" name="render" id="1B" value="1B"/></td>
+<td>45°x2<sup>2</sup></td>
+<td>U 75%</td>
+<td>L 25%</td>
+</tr>
+<tr id="r1C">
+<td class="render"><input type="radio" name="render" id="1C" value="1C"/></td>
+<td>45°x2<sup>2</sup></td>
+<td>U 50%</td>
+<td>L 50%</td>
+</tr>
+<tr id="r2A">
+<td class="render"><input type="radio" name="render" id="2A" value="2A"/></td>
+<td>45°x4<sup>2</sup></td>
+<td>U 100%</td>
+<td>L 0%</td>
+</tr>
+<tr id="r2B">
+<td class="render"><input type="radio" name="render" id="2B" value="2B"/></td>
+<td>45°x4<sup>2</sup></td>
+<td>U 75%</td>
+<td>L 25%</td>
+</tr>
+<tr id="r2C">
+<td class="render"><input type="radio" name="render" id="2C" value="2C"/></td>
+<td>45°x4<sup>2</sup></td>
+<td>U 50%</td>
+<td>L 50%</td>
+</tr>
+<tr>
+<td colspan="4"><button id="encode">ENCODE</button> <button id="decode">DECODE</button></td>
+</tr>
+<tr>
+<td colspan="4">
+<form action="http://localhost/cgi-bin/checker.cgi" method="POST">
+<input type="text" id="data" name="data"/>
+</form>
+</td>
+</tr>
+<tr>
+<td colspan="4"><button id="check">CHECK NOW</button></td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div id="checked">
+<div>
+<img id="box" src="sample.png"/>
+</div>
+</div>
+<div id="manual">
+<h2>使い方</h2>
+<p>
+糸の色は縦横に並んだ「糸玉」のボックスをクリックすると変更できます。ラジオボタンを GET にしてクリックすると、逆に色を取得できます。<br/>
+チェック画像をクリックすると、その周辺の糸を編集できます。<br/>
+Twill は織り方で、跨いで潜る糸の数です。<br/>
+CHECK NOW でファイルを作成します。Flip は反転したものを自動的に連結して画像を作ります。角度は45°にもできますが、サイズが大きくなります。縦横２倍と４倍が可能です。Overlap は重なった色をどのように合成するかで、上の糸と下の糸の色の使用率です。<br/>
+ENCODE を押すと、編集したチェックのデータを文字列に変換します。テキストエディターや付箋アプリなどで保存してください。保存しておいたデータから DECODE でデータが復元できます。一部の色だけを変更したものを作りたくなりそうなときに使用してください。<br/>
+</p>
+<h3>サンプル</h3>
+<p>
+<button id="sampleあ">サンプルあ</button>
+<button id="sample１">サンプル１</button>
+<button id="sampleＡ">サンプルＡ</button>
+</p>
+</div>
+</body>
+</html>

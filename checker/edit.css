@@ -1,0 +1,65 @@
+body
+{
+	margin: 0px;
+	padding: 0px;
+}
+p.ceiling
+{
+	margin: 0px;
+	background-color: #2f3f9d;
+}
+h1
+{
+	padding-left: 96px;
+}
+div#work
+{
+	margin: 8px;
+	background-image: url("gingham.png");
+}
+div#checked
+{
+	margin: 4px 8px;
+	display: none;
+	text-align: center;
+	width: 512px;
+}
+div#checked div
+{
+	margin: 2px auto;
+}
+div#manual
+{
+	background-image: url("houndstooth.png");
+	font-size: 125%;
+	margin: 2px 32px;
+	padding: 8px;
+}
+div#manual h2
+{
+	margin: 0px;
+	padding: 8px 24px;
+}
+div#manual p
+{
+	margin: 0px;
+	padding: 8px 32px;
+}
+img.yarnctrl
+{
+	margin: 0px 16px;
+	background-color: #FFDDEE;
+}
+img:hover.yarnctrl
+{
+	background-color: #FFAABB;
+}
+img:Active.yarnctrl
+{
+	background-color: #FFFFFF;
+}
+td.render
+{
+	padding-right: 8px;
+	text-align: right;
+}

@@ -1,0 +1,55 @@
+body
+{
+	background-color: #e7f7ff;
+	font-size: 24px;
+	font-family: sans-serif;
+}
+
+div#base
+{
+	margin-left: 100px;
+	margin-right: 160px;
+	margin-bottom: 32px;
+	padding: 8px 32px;
+	background-color: #f0fff0;
+}
+
+h2
+{
+	margin-left: -16px;
+}
+
+h2 span
+{
+	border-color: #ffdf75;
+	border-style: solid;
+	border-width: 0px 0px 8px 0px;
+	padding: 4px;
+}
+
+div.method
+{
+	border-style: solid;
+	border-width: 2px;
+	border-radius: 8px;
+	border-color: #558fff;
+	margin: 4px;
+}
+
+h3
+{
+	border-radius: 8px;
+	background-color: #ddfff0;
+	margin: 0px;
+	padding: 4px 8px;
+}
+
+div.method p
+{
+	margin: 16px 24px;
+}
+
+p#foot
+{
+	text-align: right;
+}
